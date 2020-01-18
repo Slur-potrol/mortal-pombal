@@ -1,13 +1,39 @@
 from config import TOKEN
 from telebot import TeleBot
+import requests
+import re
+
+
+YANDEX_API = ""
 
 bot = TeleBot(TOKEN)
 
 
-@bot.message_handler(content_types=['text'])
-def fallback(message):
-    return "Hello!"
+@bot.message_handler(commands=['t', 'translate'])
+def translate(message):
+    re.search(r"/t(:?ranslate)?/s(.+)$", message.text).group(1)
+    params = {
+     "key": Y_kEY,
+     "text": message.text,
+     "lamg" : f"ru-en"
+    }
+    response = requests.get(YANDEX_API, params=params)
+    print("IN", message.text)
+    response.raise_for_status()
+    date = response.json()
+    print("OUT", data['text'][0])
+    bot.send_message()
+    response = requests.get()
+    bot.send_message(
+        message.chat.id, "Hello!"
+    )
 
+def fallback(messange):
+    bot.send_message(
+        messange.chat id()
+    )
 
 if __name__ == "__main__":
     bot.polling(none_stop=True)
+
+
