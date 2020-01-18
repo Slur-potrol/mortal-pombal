@@ -1,0 +1,13 @@
+from config import TOKEN
+from telebot import TeleBot
+
+bot = TeleBot(TOKEN)
+
+
+@bot.message_handler(content_types=['text'])
+def fallback(message):
+    return "Hello!"
+
+
+if __name__ == "__main__":
+    bot.polling(none_stop=True)
