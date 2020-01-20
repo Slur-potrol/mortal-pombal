@@ -1,2 +1,2 @@
-bot: python bot.py
+bot: python translate_bot.py
 
