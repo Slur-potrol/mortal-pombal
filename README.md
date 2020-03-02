@@ -1,2 +1,2 @@
-# mortal-pombal
-Translate telegram-bot
+# Translate telegram-bot
+
